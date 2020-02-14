@@ -8,7 +8,7 @@ BERTs for Multilabel Classification based on simpletransformers (and Huggingface
 * Pandas
 * Huggingface Transformers
 
-Run bibsonomy_multilabel_bert.py to see results (current the program need to be fixed)
+Run bibsonomy_multilabel_bert.py to see results (currently the program need to be fixed)
 
 # Acknowledgement
 * Simpletransformers https://github.com/ThilinaRajapakse/simpletransformers
