@@ -7,7 +7,8 @@ from simpletransformers.classification import classification_model
 from multilabel_bert_util import transform_multilabel_as_multihot_new, acc_prec_rec_f1_hamming_scores, convert_2_df, binary_CE
 
 #settings: data path and use_cuda
-max_seq_length = 300
+max_seq_length = 512
+pos_weight = 10
 path = r'bibsonomy_preprocessed_merged_final.txt' ; use_cuda = True; fp16 = False # eddie server
 
 with open(path, encoding="utf-8") as f_content:
@@ -46,25 +47,19 @@ train_fold_df, valid_fold_df = train_test_split(train_df, test_size=0.1, shuffle
 #10 fold cv over train_df
 
 #model = MultiLabelClassificationModel('roberta', 'roberta-base', num_labels=len(label_list_sorted), args={'train_batch_size':4, 'overwrite_output_dir': True, 'max_seq_length': 512, 'fp16': False})
-model = MultiLabelClassificationModel('bert', 'bert-base-uncased', num_labels=len(label_list_sorted), args={'train_batch_size':16, 'eval_batch_size':16,'overwrite_output_dir': True, 'max_seq_length': max_seq_length, 'fp16': False, 'num_train_epochs': 1, 'n_gpu': 2})
+model = MultiLabelClassificationModel('bert', 'bert-base-uncased', num_labels=len(label_list_sorted), pos_weight=[pos_weight]*len(label_list_sorted), args={'train_batch_size':4, 'overwrite_output_dir': True, 'max_seq_length': max_seq_length, 'fp16': False, 'num_train_epochs': 5, 'n_gpu': 1})
 
 #simply load the trained model
-#model = MultiLabelClassificationModel('bert', '/exports/eddie/scratch/hdong3/outputs', num_labels=len(label_list_sorted), args={'train_batch_size':16, 'eval_batch_size':16,'overwrite_output_dir': True, 'max_seq_length': max_seq_length, 'fp16': False, 'num_train_epochs': 1, 'n_gpu': 2})
 
 # Train the model
 model.train_model(train_fold_df)
 
-result, model_outputs, wrong_predictions = model.eval_model(valid_fold_df,acc_prec_rec_f1_hamming_scores=acc_prec_rec_f1_hamming_scores)
+result, model_outputs, wrong_predictions = model.eval_model(valid_fold_df,binary_CE=binary_CE,acc_prec_rec_f1_hamming_scores=acc_prec_rec_f1_hamming_scores)
 
 print('valid_result:',result)
 print('valid_model_outputs:',model_outputs)
 
-# to_predict = train_fold_df['text'].tolist()
-# preds, outputs = model.predict(to_predict)
-# print('preds',preds)
-# print('outputs',outputs)
-
-result, model_outputs, wrong_predictions = model.eval_model(test_df,acc_prec_rec_f1_hamming_scores=acc_prec_rec_f1_hamming_scores)
+result, model_outputs, wrong_predictions = model.eval_model(test_df,binary_CE=binary_CE,acc_prec_rec_f1_hamming_scores=acc_prec_rec_f1_hamming_scores)
 
 print('valid_result:',result)
 print('valid_model_outputs:',model_outputs)
