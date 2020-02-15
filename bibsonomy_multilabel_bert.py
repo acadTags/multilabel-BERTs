@@ -9,6 +9,7 @@ from multilabel_bert_util import transform_multilabel_as_multihot_new, acc_prec_
 #settings: data path and use_cuda
 max_seq_length = 300
 path = r'bibsonomy_preprocessed_merged_final.txt' ; use_cuda = True; fp16 = False # eddie server
+#path = r'C:\Users\hdong3\OneDrive - University of Edinburgh\My python projects\caml-mimic\mimicdata\mimic3'; use_cuda = False
 
 with open(path, encoding="utf-8") as f_content:
     content = f_content.readlines()
@@ -49,6 +50,7 @@ train_fold_df, valid_fold_df = train_test_split(train_df, test_size=0.1, shuffle
 model = MultiLabelClassificationModel('bert', 'bert-base-uncased', num_labels=len(label_list_sorted), args={'train_batch_size':16, 'eval_batch_size':16,'overwrite_output_dir': True, 'max_seq_length': max_seq_length, 'fp16': False, 'num_train_epochs': 1, 'n_gpu': 2})
 
 #simply load the trained model
+#model = MultiLabelClassificationModel('bert', '/exports/eddie/scratch/hdong3/outputs', num_labels=len(label_list_sorted), args={'train_batch_size':16, 'eval_batch_size':16,'overwrite_output_dir': True, 'max_seq_length': max_seq_length, 'fp16': False, 'num_train_epochs': 1, 'n_gpu': 2})
 
 # Train the model
 model.train_model(train_fold_df)
