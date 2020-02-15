@@ -9,7 +9,6 @@ from multilabel_bert_util import transform_multilabel_as_multihot_new, acc_prec_
 #settings: data path and use_cuda
 max_seq_length = 300
 path = r'bibsonomy_preprocessed_merged_final.txt' ; use_cuda = True; fp16 = False # eddie server
-#path = r'C:\Users\hdong3\OneDrive - University of Edinburgh\My python projects\caml-mimic\mimicdata\mimic3'; use_cuda = False
 
 with open(path, encoding="utf-8") as f_content:
     content = f_content.readlines()
