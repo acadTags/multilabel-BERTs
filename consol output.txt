@@ -1,0 +1,95 @@
+(pt100) -bash-4.2$ python bibsonomy_multilabel_bert.py
+/exports/eddie/scratch/hdong3/anaconda/envs/pt100/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:469: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/exports/eddie/scratch/hdong3/anaconda/envs/pt100/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:470: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/exports/eddie/scratch/hdong3/anaconda/envs/pt100/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:471: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/exports/eddie/scratch/hdong3/anaconda/envs/pt100/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:472: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/exports/eddie/scratch/hdong3/anaconda/envs/pt100/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:473: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/exports/eddie/scratch/hdong3/anaconda/envs/pt100/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:476: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+unique labels: 5196
+most frequent 10 code
+education 2702
+ai 2503
+software 2005
+human 1996
+paper 1857
+factor 1519
+springer 1517
+book 1424
+human_factors 1360
+child 1298
+                                                    text                                             labels
+0      argumentationbased design rationale what use a...  (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+1      commerce education in india problems and prosp...  (1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+2      a comparison of software platforms for wireles...  (0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+3      query answering in description logics with tra...  (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+4      educators and public librarians unwitting part...  (1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, ...
+...                                                  ...                                                ...
+10885  a dichotomic search algorithm for mining and l...  (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+10886  a query expansion and user profile enrichment ...  (0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, ...
+10887  early identification of cerebral palsy using a...  (0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, ...
+10888  kamp karlsruhe architectural maintainability p...  (0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+10889  recent advances in physical and occupational t...  (1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, ...
+
+[10890 rows x 2 columns] 10890
+Features loaded from cache at cache_dir/cached_train_bert_512_5196_9801
+Epoch:   0%|                                                                                           | 0/1 [00:00<?, ?it/s/exports/eddie/scratch/hdong3/anaconda/envs/pt100/lib/python3.6/site-packages/torch/nn/parallel/_functions.py:61: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+Current iteration: 100%|¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 1226/1226 [23:15<00:00,  1.14s/it]
+Epoch: 100%|¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 1/1 [23:16<00:00, 1396.79s/it]
+Training of bert model complete. Saved to outputs/.
+100%|¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 1089/1089 [00:02<00:00, 477.74it/s]
+100%|¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 137/137 [01:27<00:00,  1.56it/s]
+labels: [[0 1 0 ... 0 0 0]
+ [0 1 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ ...
+ [0 0 0 ... 0 0 0]
+ [0 0 1 ... 0 0 0]
+ [1 0 0 ... 0 0 0]]
+preds: [[0.10923602 0.20587862 0.15535918 ... 0.00038779 0.00038471 0.0006938 ]
+ [0.10924047 0.20589116 0.15535928 ... 0.00038779 0.00038473 0.00069385]
+ [0.10923955 0.20589846 0.15536195 ... 0.0003878  0.0003847  0.00069378]
+ ...
+ [0.10924105 0.20589836 0.15536407 ... 0.00038781 0.00038468 0.0006938 ]
+ [0.10923643 0.20588306 0.1553633  ... 0.0003878  0.00038471 0.00069379]
+ [0.10923778 0.20588411 0.15536197 ... 0.00038779 0.00038471 0.00069381]]
+len(preds): 1089
+valid_result: {'LRAP': 0.118385046975728, 'binary_CE': 62.91389374710988, 'acc_prec_rec_f1_hamming_scores': (0.0, 0.0, 0.0, 0, 0.9899766351252742), 'eval_loss': 63.365546985264245}
+valid_model_outputs: [[0.10923602 0.20587862 0.15535918 ... 0.00038779 0.00038471 0.0006938 ]
+ [0.10924047 0.20589116 0.15535928 ... 0.00038779 0.00038473 0.00069385]
+ [0.10923955 0.20589846 0.15536195 ... 0.0003878  0.0003847  0.00069378]
+ ...
+ [0.10924105 0.20589836 0.15536407 ... 0.00038781 0.00038468 0.0006938 ]
+ [0.10923643 0.20588306 0.1553633  ... 0.0003878  0.00038471 0.00069379]
+ [0.10923778 0.20588411 0.15536197 ... 0.00038779 0.00038471 0.00069381]]
+100%|¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 1211/1211 [00:02<00:00, 538.36it/s]
+100%|¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 152/152 [01:38<00:00,  1.55it/s]
+labels: [[0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ ...
+ [0 0 0 ... 0 0 0]
+ [1 0 0 ... 0 0 0]
+ [0 1 0 ... 0 0 0]]
+preds: [[0.10923571 0.20587982 0.15535845 ... 0.00038779 0.0003847  0.00069377]
+ [0.10924093 0.20588855 0.15535831 ... 0.00038781 0.00038469 0.00069379]
+ [0.10924079 0.20588917 0.15535696 ... 0.0003878  0.00038469 0.0006938 ]
+ ...
+ [0.1092384  0.20588808 0.15535879 ... 0.0003878  0.00038471 0.00069383]
+ [0.10923547 0.20588124 0.155359   ... 0.0003878  0.00038474 0.00069384]
+ [0.10923815 0.205893   0.15535747 ... 0.00038781 0.00038469 0.0006938 ]]
+len(preds): 1211
+valid_result: {'LRAP': 0.11788387395716966, 'binary_CE': 63.52360395704727, 'acc_prec_rec_f1_hamming_scores': (0.0, 0.0, 0.0, 0, 1.0096548107689862), 'eval_loss': 63.426815836053144}
+valid_model_outputs: [[0.10923571 0.20587982 0.15535845 ... 0.00038779 0.0003847  0.00069377]
+ [0.10924093 0.20588855 0.15535831 ... 0.00038781 0.00038469 0.00069379]
+ [0.10924079 0.20588917 0.15535696 ... 0.0003878  0.00038469 0.0006938 ]
+ ...
+ [0.1092384  0.20588808 0.15535879 ... 0.0003878  0.00038471 0.00069383]
+ [0.10923547 0.20588124 0.155359   ... 0.0003878  0.00038474 0.00069384]
+ [0.10923815 0.205893   0.15535747 ... 0.00038781 0.00038469 0.0006938 ]]
